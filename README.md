@@ -1,2 +1,2 @@
-# AI-Agent
+# AIAgent
 AI Agent from scratch
