@@ -5,6 +5,13 @@ name = "pypi"
 
 [packages]
 pip = "*"
+python-dotenv = "*"
+pydantic = "*"
+langchain = "*"
+wikipedia = "*"
+langchain-community = "*"
+langchain-openai = "*"
+langchain-anthropic = "*"
 
 [dev-packages]
 
