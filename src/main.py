@@ -8,6 +8,7 @@ load_dotenv()
 llm = ChatAnthropic(model_name="claude-sonnet-4-5-20250929",
                     temperature=0,
                     timeout=None,
-                    max_retries=2)
+                    max_retries=2,
+                    stop=None)
 response = llm.invoke("Tell me a joke")
 print(response)
