@@ -12,9 +12,10 @@ wikipedia = "*"
 langchain-community = "*"
 langchain-openai = "*"
 langchain-anthropic = "*"
+langchain-core = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12.12
+python_version = "3.12.12"
 python_full_version = "3.12.12"
