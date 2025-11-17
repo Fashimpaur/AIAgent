@@ -7,6 +7,9 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
+# ----------------------------
+# Load API keys from .env file
+# ----------------------------
 load_dotenv()
 
 
@@ -70,14 +73,19 @@ def pretty_print_wrapped(label: str, text: str, width: int = 120):
 # Main Execution
 # ----------------------------
 if __name__ == "__main__":
+    ''' 
+    Accepts a command line question or uses the default.  You can change the default here before running if desired.
+    You can also change the default width (number of characters pre line) of the output.
+    '''
+
+    default_question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?"
+    max_width = 120
 
     question = (
         " ".join(sys.argv[1:])
         if len(sys.argv) > 1
-        else "What is the meaning of life?"
+        else default_question
     )
-
-    max_width = 120
 
     pretty_print_wrapped("Original Question", question, width=max_width)
 
@@ -86,5 +94,5 @@ if __name__ == "__main__":
     for field_name, field_value in output.model_dump().items():
         label = field_name.replace("_", " ").title()
         if isinstance(field_value, list):
-            field_value = ", ".join(field_value)
+            field_value = f'[{", ".join(field_value)}]'
         pretty_print_wrapped(label, field_value, width=max_width)
